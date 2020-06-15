@@ -78,7 +78,7 @@ void postPhase() {
 // clears the screen and makes fun of the dumbass who believed this - and maybe crashes the user
 void endPhase() {
 	__clear();
-	openRickRoll();                                                                      // if adjusting privileges fails for some reason
+	openRickRoll();                                                                  
 	std::cout << trolled << std::endl;
 	#ifdef _WIN32
 		std::cout << "But wait... there's more!" << std::endl;
