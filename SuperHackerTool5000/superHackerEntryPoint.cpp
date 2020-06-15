@@ -70,14 +70,14 @@ void postPhase() {
 	std::cout << "[+][facebook_module]  - Hacking all recently viewed Facebook accounts...";  __sleep(3000); std::cout << "  success; information saved." << std::endl;
 	std::cout << "[+][snapchat_module]  - Hacking all recently viewed Snapchat accounts...";  __sleep(3000); std::cout << "  success; information saved." << std::endl;
 	std::cout << "[+][fbi_module]       - Starting FBI Hack..." << std::endl; __sleep(2000); std::cout << "\t[+] Performing RCE on FBI website..."; __sleep(1000); std::cout << " done." << std::endl;
-																							 std::cout << "\t[+] Injecting internal database...";   __sleep(1000); std::cout << "   done." << std::endl;
-																							 std::cout << "\t[+] Get user information tables...";   __sleep(2000); std::cout << "   done; information saved." << std::endl;
-																							 std::cout << "\t[+] Getting classified documents...";  __sleep(3000); std::cout << "  done; information saved." << std::endl;
-																							 std::cout << "\t[+] Done." << std::endl;
+												 std::cout << "\t[+] Injecting internal database...";   __sleep(1000); std::cout << "   done." << std::endl;
+												 std::cout << "\t[+] Get user information tables...";   __sleep(2000); std::cout << "   done; information saved." << std::endl;
+												 std::cout << "\t[+] Getting classified documents...";  __sleep(3000); std::cout << "  done; information saved." << std::endl;
+												 std::cout << "\t[+] Done." << std::endl;
 	std::cout << "[+][nsa_module]       - Starting NSA Hack..." << std::endl; __sleep(2000); std::cout << "\t[+] Executing NSA backdoor...";         __sleep(3000); std::cout << "        done; connected." << std::endl;
-																							 std::cout << "\t[+] Gathering government secrets...";   __sleep(3000); std::cout << "  done; information saved." << std::endl;
-																							 std::cout << "\t[+] Placing a RAT on Hillary's PC...";  __sleep(4000); std::cout << " done; injected." << std::endl;
-																							 std::cout << "\t[+] Done. " << std::endl;
+												 std::cout << "\t[+] Gathering government secrets...";   __sleep(3000); std::cout << "  done; information saved." << std::endl;
+												 std::cout << "\t[+] Placing a RAT on Hillary's PC...";  __sleep(4000); std::cout << " done; injected." << std::endl;
+												 std::cout << "\t[+] Done. " << std::endl;
 	std::cout << "[+] Exporting saved information..."; __sleep(8000); std::cout << " done; exported." << std::endl;
 	std::cout << "[!] Finalizing..."; __sleep(3000);
 }
