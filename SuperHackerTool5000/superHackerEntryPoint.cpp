@@ -6,8 +6,8 @@
 	#include <shellapi.h>
 #endif
 #ifdef __linux__
-	#include <unistd.h>
-	#include <cstring>
+    #include <cstring>
+    #include <unistd.h>
 #endif
 
 void prePhase();
