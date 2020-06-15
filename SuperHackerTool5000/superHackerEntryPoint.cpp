@@ -3,6 +3,7 @@
 #include "superHackerASCIIArt.h"
 #ifdef _WIN32
 	#include <windows.h>
+	#include <shellapi.h>
 #endif
 #ifdef __linux__
 	#include <unistd.h>
@@ -13,6 +14,9 @@ void postPhase();
 void endPhase();
 void __sleep(unsigned int ms);
 void __clear();
+#ifdef _WIN32
+	void openRickRoll();
+#endif
 
 int main() {
 	prePhase();
@@ -25,10 +29,10 @@ int main() {
 void prePhase() {
 	const char* welcome = "[!] Welcome...";                                          // super cool hacking modules for the big hacc
 	const char* loading = "[!] Loading modules..."; std::vector<const char*> modules = {"instagram_hacking_module",
-											    "facebook_hacking_module",
-											    "snapchat_hacking_module",
-											    "fbi_hacking_module",
-											    "nsa_hacking_module"};
+																						"facebook_hacking_module",
+																						"snapchat_hacking_module",
+																						"fbi_hacking_module",
+																						"nsa_hacking_module"};
 	const char* enc     = "[!] Encrypting virtual address space...";
 	const char* init    = "[!] Initializing...";
 	__sleep(1000); // for suspense
@@ -64,20 +68,20 @@ void postPhase() {
 	for (unsigned short int i = 0; i < strlen(execMods); i++) {
 		std::cout << execMods[i];
 		__sleep(60);
-	} __sleep(1500); 
+	} __sleep(1500);
 	std::cout << std::endl;
 	std::cout << "[+][instagram_module] - Hacking all recently viewed Instagram accounts..."; __sleep(3000); std::cout << " success; information saved." << std::endl;
 	std::cout << "[+][facebook_module]  - Hacking all recently viewed Facebook accounts...";  __sleep(3000); std::cout << "  success; information saved." << std::endl;
 	std::cout << "[+][snapchat_module]  - Hacking all recently viewed Snapchat accounts...";  __sleep(3000); std::cout << "  success; information saved." << std::endl;
 	std::cout << "[+][fbi_module]       - Starting FBI Hack..." << std::endl; __sleep(2000); std::cout << "\t[+] Performing RCE on FBI website..."; __sleep(1000); std::cout << " done." << std::endl;
-												 std::cout << "\t[+] Injecting internal database...";   __sleep(1000); std::cout << "   done." << std::endl;
-												 std::cout << "\t[+] Get user information tables...";   __sleep(2000); std::cout << "   done; information saved." << std::endl;
-												 std::cout << "\t[+] Getting classified documents...";  __sleep(3000); std::cout << "  done; information saved." << std::endl;
-												 std::cout << "\t[+] Done." << std::endl;
+																							 std::cout << "\t[+] Injecting internal database...";   __sleep(1000); std::cout << "   done." << std::endl;
+																							 std::cout << "\t[+] Get user information tables...";   __sleep(2000); std::cout << "   done; information saved." << std::endl;
+																							 std::cout << "\t[+] Getting classified documents...";  __sleep(3000); std::cout << "  done; information saved." << std::endl;
+																							 std::cout << "\t[+] Done." << std::endl;
 	std::cout << "[+][nsa_module]       - Starting NSA Hack..." << std::endl; __sleep(2000); std::cout << "\t[+] Executing NSA backdoor...";         __sleep(3000); std::cout << "        done; connected." << std::endl;
-												 std::cout << "\t[+] Gathering government secrets...";   __sleep(3000); std::cout << "  done; information saved." << std::endl;
-												 std::cout << "\t[+] Placing a RAT on Hillary's PC...";  __sleep(4000); std::cout << " done; injected." << std::endl;
-												 std::cout << "\t[+] Done. " << std::endl;
+																							 std::cout << "\t[+] Gathering government secrets...";   __sleep(3000); std::cout << "  done; information saved." << std::endl;
+																							 std::cout << "\t[+] Placing a RAT on Hillary's PC...";  __sleep(4000); std::cout << " done; injected." << std::endl;
+																							 std::cout << "\t[+] Done. " << std::endl;
 	std::cout << "[+] Exporting saved information..."; __sleep(8000); std::cout << " done; exported." << std::endl;
 	std::cout << "[!] Finalizing..."; __sleep(3000);
 }
@@ -85,6 +89,9 @@ void postPhase() {
 // clears the screen and makes fun of the dumbass who believed this
 void endPhase() {
 	__clear();
+	#ifdef _WIN32
+		openRickRoll();
+	#endif
 	std::cout << trolled << std::endl; std::cout << "Now get out of here... "; getchar();
 }
 
@@ -107,3 +114,10 @@ void __clear() {
 		system("cls");
 	#endif
 }
+
+// don't feel like adding a __linux__ variant
+#ifdef _WIN32
+	void openRickRoll() {
+		ShellExecute(0, 0, "https://youtu.be/dQw4w9WgXcQ?autoplay=1", 0, 0, SW_SHOW);
+	}
+#endif
