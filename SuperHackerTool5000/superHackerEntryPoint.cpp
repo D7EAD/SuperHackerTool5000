@@ -14,6 +14,7 @@ void postPhase();
 void endPhase();
 void __sleep(unsigned int ms);
 void __clear();
+void typingPrint(const char* item);
 #ifdef _WIN32
 	void openRickRoll();
 #endif
@@ -36,29 +37,14 @@ void prePhase() {
 	const char* enc     = "[!] Encrypting virtual address space...";
 	const char* init    = "[!] Initializing...";
 	__sleep(1000); // for suspense
-	for (unsigned short int i = 0; i < strlen(welcome); i++) {
-		std::cout << welcome[i];
-		__sleep(60);
-	} __sleep(1500);
-	std::cout << std::endl;
-	for (unsigned short int i = 0; i < strlen(loading); i++) {
-		std::cout << loading[i];
-		__sleep(60);
-	} __sleep(1500);
-	std::cout << std::endl;
+	typingPrint(welcome); __sleep(1500); std::cout << std::endl;
+	typingPrint(loading); __sleep(1500); std::cout << std::endl;
 	for (unsigned short int i = 0; i < modules.size(); i++) {
 		std::cout << "\t[+] Loaded module: " << modules[i] << std::endl;
 		__sleep(1000);
-	} __sleep(1500);
-	for (unsigned short int i = 0; i < strlen(enc); i++) {
-		std::cout << enc[i];
-		__sleep(60);
-	} __sleep(4000); std::cout << " done."; // encryption go brrrr
-	std::cout << std::endl;
-	for (unsigned short int i = 0; i < strlen(init); i++) {
-		std::cout << init[i];
-		__sleep(60);
-	} __sleep(1500); __clear();
+	} __sleep(1500);                 // encryption go brrrr
+	typingPrint(enc); __sleep(4000); std::cout << " done."; std::cout << std::endl;
+	typingPrint(init); __sleep(1500); __clear();
 }
 
 // does super l33t stuff after the banner phase
@@ -113,6 +99,14 @@ void __clear() {
 	#ifdef _WIN32
 		system("cls");
 	#endif
+}
+
+// to miniy for statements
+void typingPrint(const char* item) {
+	for (unsigned short int i = 0; i < strlen(item); i++) {
+		std::cout << item[i];
+		__sleep(60);
+	}
 }
 
 // don't feel like adding a __linux__ variant
