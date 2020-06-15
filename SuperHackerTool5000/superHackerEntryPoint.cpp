@@ -101,7 +101,7 @@ void __clear() {
 	#endif
 }
 
-// to miniy for statements
+// to minify for statements
 void typingPrint(const char* item) {
 	for (unsigned short int i = 0; i < strlen(item); i++) {
 		std::cout << item[i];
