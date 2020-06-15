@@ -64,7 +64,7 @@ void postPhase() {
 	for (unsigned short int i = 0; i < strlen(execMods); i++) {
 		std::cout << execMods[i];
 		__sleep(60);
-	} __sleep(1500);
+	} __sleep(1500); 
 	std::cout << std::endl;
 	std::cout << "[+][instagram_module] - Hacking all recently viewed Instagram accounts..."; __sleep(3000); std::cout << " success; information saved." << std::endl;
 	std::cout << "[+][facebook_module]  - Hacking all recently viewed Facebook accounts...";  __sleep(3000); std::cout << "  success; information saved." << std::endl;
