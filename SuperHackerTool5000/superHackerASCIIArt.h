@@ -1,4 +1,4 @@
-﻿const char* banner = R"V0G0N(
+const char* banner = R"V0G0N(
                    /|  /|  ---------------------------
                    ||__||  |                         |
                   /   O O\__  I have a horny little  |

@@ -8,7 +8,6 @@
 #ifdef __linux__
     #include <cstring>
 	#include <unistd.h>
-	#include <cstring>
 #endif
 
 void prePhase();
