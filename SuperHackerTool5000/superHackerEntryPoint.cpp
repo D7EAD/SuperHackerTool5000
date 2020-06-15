@@ -15,9 +15,7 @@ void endPhase();
 void __sleep(unsigned int ms);
 void __clear();
 void typingPrint(const char* item);
-#ifdef _WIN32
-	void openRickRoll();
-#endif
+void openRickRoll();
 
 int main() {
 	prePhase();
@@ -75,9 +73,7 @@ void postPhase() {
 // clears the screen and makes fun of the dumbass who believed this
 void endPhase() {
 	__clear();
-	#ifdef _WIN32
-		openRickRoll();
-	#endif
+	openRickRoll();
 	std::cout << trolled << std::endl; std::cout << "Now get out of here... "; getchar();
 }
 
@@ -101,7 +97,7 @@ void __clear() {
 	#endif
 }
 
-// to minify for statements
+// to miniy for statements
 void typingPrint(const char* item) {
 	for (unsigned short int i = 0; i < strlen(item); i++) {
 		std::cout << item[i];
@@ -109,9 +105,12 @@ void typingPrint(const char* item) {
 	}
 }
 
-// don't feel like adding a __linux__ variant
-#ifdef _WIN32
-	void openRickRoll() {
+// __linux__ is untested
+void openRickRoll() {
+	#ifdef _WIN32
 		ShellExecute(0, 0, "https://youtu.be/dQw4w9WgXcQ?autoplay=1", 0, 0, SW_SHOW);
-	}
-#endif
+	#endif
+	#ifdef __linux__
+		system("xdg-open https://youtu.be/dQw4w9WgXcQ?autoplay=1")
+	#endif
+}
