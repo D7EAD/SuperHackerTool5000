@@ -25,10 +25,10 @@ int main() {
 void prePhase() {
 	const char* welcome = "[!] Welcome...";                                          // super cool hacking modules for the big hacc
 	const char* loading = "[!] Loading modules..."; std::vector<const char*> modules = {"instagram_hacking_module",
-																						"facebook_hacking_module",
-																						"snapchat_hacking_module",
-																						"fbi_hacking_module",
-																						"nsa_hacking_module"};
+											    "facebook_hacking_module",
+											    "snapchat_hacking_module",
+											    "fbi_hacking_module",
+											    "nsa_hacking_module"};
 	const char* enc     = "[!] Encrypting virtual address space...";
 	const char* init    = "[!] Initializing...";
 	__sleep(1000); // for suspense
