@@ -7,6 +7,7 @@
 #endif
 #ifdef __linux__
 	#include <unistd.h>
+	#include <cstring>
 #endif
 
 void prePhase();
@@ -111,6 +112,6 @@ void openRickRoll() {
 		ShellExecute(0, 0, "https://youtu.be/dQw4w9WgXcQ?autoplay=1", 0, 0, SW_SHOW);
 	#endif
 	#ifdef __linux__
-		system("xdg-open https://youtu.be/dQw4w9WgXcQ?autoplay=1")
+		system("xdg-open https://youtu.be/dQw4w9WgXcQ?autoplay=1");
 	#endif
 }
