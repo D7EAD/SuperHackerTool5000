@@ -75,7 +75,7 @@ void postPhase() {
 	std::cout << "[!] Finalizing..."; __sleep(3000);
 }
 
-// clears the screen and makes fun of the dumbass who believed this - and maybe crashes the user
+// clears the screen and makes fun of the person who believed this - and maybe crashes the user
 void endPhase() {
 	__clear();
 	openRickRoll();                                                                  
